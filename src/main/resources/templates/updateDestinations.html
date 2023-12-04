@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Destinations</title>
+</head>
+<body>
+	<form action="editDestination" method="post">
+		<p>
+			New Location: <input type="text" name="newLocation" size="25" />
+		</p>
+		<p>
+			New Price: <input type="text" name="newPrice" size="25" />
+		</p>
+		<p>
+			New Rating: <input type="text" name="newRating" size="25" />
+		</p>
+		<p>
+			New Details: <input type="text" name="newDetails" size="25" />
+		</p>
+		<p>
+			New Amenities: <input type="text" name="newAmenities" size="25" />
+		</p>
+		<p>
+			Enter the current Location: <input type="text" name="oldLocationName"
+				size="25" /><br> <input type="submit" value="Update" />
+		</p>
+	</form>
+</body>
+</html>

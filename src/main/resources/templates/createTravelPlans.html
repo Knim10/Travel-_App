@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Travel Planner</title>
+
+<style>
+</style>
+
+</head>
+
+<body>
+    <h2>All Destinations</h2>
+
+    <form th:action="@{/create-travel-plan}" method="post">
+        <table border="1">
+            <thread>
+                <tr>
+                    <th>Destination</th>
+                    <th>select</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr th:each="currentDestination: ${destination}">
+                    <td th:text="${currentDestination.id}" />
+                    <td th:text="${currentDestination.location}" />
+                    <td th:text="${currentDestination.price}" />
+                    <td th:text="${currentDestination.rating}" />
+                    <td th:text="${currentDestination.details}" />
+                    <td th:text="${currentDestination.amenities}" />
+                    <td><input type="checkbox" th:field="*{selectedDestinations}" th:value="${destination}"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br/>
+
+        <label for="travelPlanName">Travel Plan Name:</label>
+        <input type="text" id="travelPlanName" name="travelPlanName" required />
+
+        <br/>
+
+        <input type="submit" value="create" />
+    </form>
+
+</body>
+</html>

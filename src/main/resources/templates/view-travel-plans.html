@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Travel Plans</title>
+</head>
+<body>
+
+<h2>Travel Plans</h2>
+
+<form action="/travel-plans/update-access" method="post">
+    <table border="1">
+        <tr>
+            <th>Select</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Access Type</th>
+        </tr>
+        <tr th:each="plan : ${travelPlans}">
+            <td><input type="checkbox" th:name="planIds" th:value="${plan.id}" /></td>
+            <td th:text="${plan.id}"></td>
+            <td th:text="${plan.title}"></td>
+            <td>
+                <select th:name="accessType">
+                    <option value="PUBLIC" th:selected="${plan.accessType == 'PUBLIC'}">Public</option>
+                    <option value="PRIVATE" th:selected="${plan.accessType == 'PRIVATE'}">Private</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Add Users to Private Plans</h3>
+    <label>New Users (comma-separated): </label>
+    <input type="text" th:name="newUsers" />
+
+    <br/><br/>
+
+    <input type="submit" value="Update Access" />
+</form>
+
+</body>
+</html>

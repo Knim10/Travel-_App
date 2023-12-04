@@ -1,0 +1,250 @@
+
+* {
+	box-sizing: border-box;
+	width: auto;
+	margin: auto;
+	padding: auto;
+}
+
+body {
+	background-color: whitesmoke;
+	font-family: 'Roboto', 'courier_primeregular', Verdana, Arial, Helvetica,
+		sans-serif;
+	text-align: center;
+	font-size: 15px;
+	margin: auto;
+	padding: auto;
+	color: black;
+}
+
+p {
+	color: rgb(0, 0, 0);
+	text-align: center;
+	font-family: 'Impact';
+	font-size: 110%;
+	width: auto;
+	border: 5px outset hsla(38, 52%, 30%, 1);
+	padding: 10px;
+	margin: 10px;
+}
+
+h1 {
+	background-color: skyblue;
+	color: whitesmoke;
+	text-transform: capitalize;
+	font-family: 'courier_primeregular';
+	font-size: 3em;
+	width: auto;
+	border: 5px double white;
+	padding: 20px;
+	margin: 50px;
+}
+
+h2 {
+	color: hsl(0, 0%, 35%);
+	font-family: 'courier_primeregular';
+	font-size: 2em;
+	width: auto;
+	border: 5px double rgb(190, 184, 4);
+	padding: 20px;
+	margin: 50px;
+}
+
+h3 {
+	color: rgb(95, 93, 94);
+	text-align: center;
+	font-family: 'courier_primeregular';
+	font-size: x-large;
+	width: auto;
+	border-top: 5px dashed rgb(190, 184, 4);
+	padding: 20px;
+	margin: 50px;
+}
+
+h4 {
+	color: hsla(0, 0%, 40%, 1);
+	font-size: 2em;
+	width: auto;
+	border: 5px dotted rgb(190, 184, 4);
+	padding: 20px;
+	margin: 50px;
+}
+
+h5 {
+	background-color: skyblue;
+	color: whitesmoke;
+	font-size: 150%;
+	width: auto;
+	border: 5px outset white;
+	padding: 10px;
+	margin: 25px;
+}
+
+.nav-toggle {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
+}
+
+.nav-toggle:focus ~.nav-toggle-label {
+	outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 1em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.nav-toggle-label span, .nav-toggle-label span::before,
+	.nav-toggle-label span::after {
+	display: block;
+	background: white;
+	height: 2px;
+	width: 2em;
+	border-radius: 2px;
+	position: relative;
+}
+
+.center {
+	margin: auto;
+	width: 50%;
+	border: 3px solid green;
+	padding: 10px;
+}
+
+.nav-toggle-label span::before, .nav-toggle-label span::after {
+	content: '';
+	position: absolute;
+}
+
+.nav-toggle-label span::before {
+	bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+	top: 7px;
+}
+
+nav {
+	position: absolute;
+	text-align: left;
+	top: 100%;
+	left: 0;
+	background: var(--background);
+	font-family: 'Times New Roman', Times, serif;
+	width: 100%;
+	transform: scale(1, 0);
+	transform-origin: top;
+	transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+	color: #000;
+}
+
+.nav-toggle:checked ~nav {
+	transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~nav a {
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+	.nav-toggle-label {
+		display: none;
+	}
+	header {
+		display: grid;
+		grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+	}
+	.logo {
+		grid-column: 2/3;
+	}
+	nav {
+		all: unset;
+		position: relative;
+		text-align: left;
+		transition: none;
+		transform: scale(1, 1);
+		background: none;
+		top: initial;
+		left: initial;
+		grid-column: 3/4;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	nav ul {
+		display: flex;
+	}
+	nav li {
+		margin-left: 3em;
+		margin-bottom: 0;
+	}
+	nav a {
+		opacity: 1;
+		position: relative;
+	}
+	nav a::before {
+		content: '';
+		display: block;
+		height: 5px;
+		background: black;
+		position: absolute;
+		top: -.75em;
+		left: 0;
+		right: 0;
+		transform: scale(0, 1);
+		transition: transform ease-in-out 250ms;
+	}
+	nav a:hover::before {
+		transform: scale(1, 1);
+	}
+	form {
+		margin: 20px;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 15px;
+	}
+	tr {
+		border: 3px solid black;
+	}
+	td {
+		background-color: skyblue;
+		color: whitesmoke;
+		font-size: 150%;
+		width: auto;
+		border: 5px outset white;
+		padding: 10px;
+		margin: 25px;
+	}
+}
