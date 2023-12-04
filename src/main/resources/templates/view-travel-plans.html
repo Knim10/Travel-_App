@@ -21,6 +21,16 @@
             <td th:text="${plan.id}"></td>
             <td th:text="${plan.name}"></td>
             <td th:text="${plan.price}"></td>
+
+            <td><nav>
+                <a th:href="@{/editTravelPLan/{id}(id=${plan.id})}">Update</a>
+            </nav></td>
+
+            <td><nav>
+                <a
+                    th:href="@{/deleteTravelPlan/{id}(id=${plan.id})}">Delete</a>
+            </nav></td>
+
             <td>
                 <select th:name="accessType">
                     <option value="PUBLIC" th:selected="${plan.accessType == 'PUBLIC'}">Public</option>

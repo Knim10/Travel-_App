@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User findUserById(@PathVariable Long id) {
-        return userService.getUserbyId(id);
+        return userService.getUserById(id);
     }
 
     @GetMapping("/view")
